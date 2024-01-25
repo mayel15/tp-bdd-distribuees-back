@@ -1,0 +1,15 @@
+version: "3.2"
+
+services:
+
+  mongo:
+    image: mongo:4.4.4
+    container_name: mongo-rs-sh-01
+    volumes:
+      - "./mongo-rs-sh-01:/data/db"
+    ports: 
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: guest
+      MONGO_INITDB_ROOT_PASSWORD: guest
+      
