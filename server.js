@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors());
 
 try {
-    mongoose.connect("mongodb://localhost:27017/projet-bdd")
+    mongoose.connect(process.env.MONGODB_URL);
 } catch (err) {
     console.log("connection to the database failed")
 }
@@ -132,11 +132,36 @@ app.get('/api/commandes', (req, res) => {
     })
 })
 
-// get a particular resource : OK
-app.get('/api/resources/:id', (req, res) => {
-    Resource.findById(req.params.id).then((resource) => {
-        return (!resource)
-            ? res.status(404).send({ message: "resource not found" })
-            : res.status(200).send(resource)
-    })
-})
+// filter commandes by interval of date , member client, member actif and material
+app.get('/api/commandes/filter', (req, res) => {
+    const { startDate, endDate, memberClient, memberActif, material } = req.query;
+
+    let query = {};
+
+    if (startDate && endDate) {
+        query.date = { $gte: new Date(startDate), $lte: new Date(endDate) };
+    }
+
+    if (memberClient) {
+        query.idMembreClient = memberClient;
+    }
+
+    if (memberActif) {
+        query.idMembreActif = memberActif;
+    }
+
+    if (material) {
+        query.listeMateriel = material;
+    }
+
+    Commande.find(query)
+        .then((commandes) => {
+            return (!commandes)
+                ? res.status(404).send({ message: "commande not found" })
+                : res.status(200).send(commandes);
+        })
+        .catch((error) => {
+            console.error('Error filtering commandes:', error);
+            res.status(500).send({ message: "Internal server error" });
+        });
+});
