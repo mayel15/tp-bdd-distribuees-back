@@ -15,7 +15,7 @@ La partie front end du projet est disponible ici:
 
 ## Modele de base de donnnées
 
-/!\  Quelques modifications ont été apporté au niveau du code /!\
+/!\  Quelques modifications ont été apportées au niveau du code /!\
 
 ![alt text](image.png)
 
