@@ -133,7 +133,7 @@ app.get('/api/commandes', (req, res) => {
 })
 
 // filter commandes by interval of date , member client, member actif and material
-app.get('/api/commandes/filter', (req, res) => {
+app.post('/api/commandes/filter', (req, res) => {
     const { startDate, endDate, memberClient, memberActif, material } = req.query;
 
     let query = {};
