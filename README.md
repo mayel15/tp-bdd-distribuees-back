@@ -7,11 +7,18 @@
 # Front-end
 
 La partie front end du projet est disponible ici:
-`https://github.com/mayel15/tp-bdd-distribuees-front`
+[tp-bdd-distribuees-front](https://github.com/mayel15/tp-bdd-distribuees-front)
 
 # Lancer le projet back-end
 
 - Rassurez vous d'avoir `Git`, `Docker` et `Node` installés.
+
+## Modele de base de donnnées
+
+/!\  Quelques modifications ont été apporté au niveau du code /!\
+
+![alt text](image.png)
+
 
 ## Configuration
 
@@ -39,5 +46,5 @@ La partie front end du projet est disponible ici:
 - Et normalement le serveur doit écouter sur le port 3000 en localhost
 
 - Maintenant le front end peut être démarer ici:
-  `https://github.com/mayel15/tp-bdd-distribuees-front`
+  [tp-bdd-distribuees-front](https://github.com/mayel15/tp-bdd-distribuees-front)
   
